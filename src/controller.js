@@ -1,7 +1,7 @@
 const {ipcRenderer} = require('electron')
 
 const init = () => {
-    const currentFileElement = document.getElementById('current-file')
+    const currentFileElement = document.getElementById('current-value')
     currentFileElement.innerText = localStorage.getItem('searchbarValue')
     const dataDirElement = document.getElementById('data-dir')
     dataDirElement.innerText = localStorage.getItem('dataDirectory')
@@ -18,7 +18,7 @@ const onSearchbarChange = (e) => {
 const onSearchbarKeydown = (e) => {
     if (e.key === 'Enter') {
         localStorage.setItem('searchbarValue', e.target.value)
-        const currentFileElement = document.getElementById('current-file')
+        const currentFileElement = document.getElementById('current-value')
         currentFileElement.innerText = e.target.value
     }
 }

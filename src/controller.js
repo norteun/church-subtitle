@@ -5,6 +5,8 @@ const init = () => {
     currentFileElement.innerText = localStorage.getItem('searchbarValue')
     const dataDirElement = document.getElementById('data-dir')
     dataDirElement.innerText = localStorage.getItem('dataDirectory')
+    const currentModeElement = document.getElementById('current-mode')
+    currentModeElement.innerHTML = localStorage.getItem('mode')
 }
 
 init()
@@ -37,5 +39,16 @@ const onBrowseButtonClick = () => {
     )
 }
 
-const browseButtonElement = document.getElementById('data-dir-browse')
-browseButtonElement.addEventListener('click', onBrowseButtonClick)
+const setCurrentMode = (mode) => {
+    localStorage.setItem('mode', mode)
+    const currentModeElement = document.getElementById('current-mode')
+    currentModeElement.innerHTML = mode
+}
+
+const onBibleButtonClick = () => {
+    setCurrentMode('bible')
+}
+
+const onCCMButtonClick = () => {
+    setCurrentMode('ccm')
+}
